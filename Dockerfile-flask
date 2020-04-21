@@ -1,0 +1,19 @@
+FROM python:3.6-slim-stretch
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install -y python-pip python-dev
+RUN pip install Flask-Twilio
+RUN apt-get update
+RUN pip3 install uwsgi
+LABEL maintainer="gzlkhan409@gmail.com"
+LABEL roll_no="PIAIC61295"
+ENV CREATEDBY="Frosty Fera"
+COPY . /app
+WORKDIR /app
+RUN pip3 install flask
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+RUN python -m spacy download en_core_web_sm
+RUN python -m nltk.downloader stopwords
+EXPOSE 2020
+CMD [ "uwsgi", "--ini", "app.ini" ]

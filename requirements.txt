@@ -1,0 +1,17 @@
+flask
+flask-restful
+flask_login
+pymongo
+bcrypt
+flask_dance
+flask-cors
+pyresparser
+python-docx
+pdfminer.six
+find_job_titles
+numpy
+pdfkit
+spacy
+twilio
+flask-sendgrid
+stripe
